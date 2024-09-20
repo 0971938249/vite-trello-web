@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-    <div>Nhật Quang</div>
+      <div>Nhật Quang</div>
       <Button variant="contained">Hello world</Button>
       <AccessAlarmIcon/>
       <ThreeDRotation/>
