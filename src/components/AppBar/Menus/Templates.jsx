@@ -21,7 +21,7 @@ function Templates() {
   return (
     <Box>
       <Button
-        sx={{ display:'flex', justifyContent:'space-between', width:'100%' }}
+        sx={{ display:'flex', justifyContent:'space-between', width:'100%', color:'white' }}
         id="basic-button-templates"
         aria-controls={open ? 'basic-menu-templates' : undefined}
         aria-haspopup="true"

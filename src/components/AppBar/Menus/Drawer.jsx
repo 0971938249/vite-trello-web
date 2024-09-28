@@ -25,16 +25,19 @@ export default function LeftDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 250, px:'10px' }}
+      sx={{
+        width: 250, px:'10px', height:'100vh',
+        bgcolor:(theme) => (theme.palette.mode ==='dark'? '#2c3e50' : '#1565c0')
+      }}
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <Box sx={{ width: '100%' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <WidgetsOutlinedIcon sx={{ color: 'primary.main' }} />
-          <SvgIcon component={Trello} inheritViewBox sx={{ color: 'primary.main' }} />
-          <Typography variant="span" sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>
+          <WidgetsOutlinedIcon sx={{ color: 'white' }} />
+          <SvgIcon component={Trello} inheritViewBox sx={{ color: 'white' }} />
+          <Typography variant="span" sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
             Trello
           </Typography>
         </Box>
@@ -44,14 +47,19 @@ export default function LeftDrawer() {
         <Recent />
         <Starred />
         <Templates />
-        <Button variant="outlined">Create</Button>
+        <Button
+          variant="outlined"
+          sx={{
+            color:'white',
+            border:'none',
+            '&:hover':{ border:'none' }
+          }}>Create</Button>
       </Box>
     </Box>
   )
-
   return (
-    <div>
-      <Button onClick={toggleDrawer('left', true)}><FormatListBulletedIcon/></Button>
+    <Box >
+      <Button onClick={toggleDrawer('left', true)}><FormatListBulletedIcon sx={{ color:'white' }}/></Button>
       <Drawer
         anchor='left'
         open={state['left']}
@@ -59,6 +67,6 @@ export default function LeftDrawer() {
       >
         {list('left')}
       </Drawer>
-    </div>
+    </Box>
   )
 }
