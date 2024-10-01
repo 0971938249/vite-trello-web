@@ -16,9 +16,12 @@ import DragHandleIcon from '@mui/icons-material/DragHandle'
 import { ContentCopy, ContentPaste } from '@mui/icons-material'
 import Button from '@mui/material/Button'
 import ListCard from './ListCards/ListCard'
+import { mapOrder } from '~/utils/sorts'
 
 
-function Column() {
+function Column({ column }) {
+
+  const orderCard= mapOrder(column?.cards, column?.cardOrderIds, '_id')
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -49,7 +52,7 @@ function Column() {
           fontWeight:'bold',
           cursor:'pointer'
         }}>
-            Column Title
+          {column?.title}
         </Typography>
 
         <Box>
@@ -101,7 +104,7 @@ function Column() {
         </Box>
       </Box>
       {/*Box Column ListCard*/}
-      <ListCard/>
+      <ListCard cards={orderCard}/>
       {/*Box Column Footer*/}
       <Box sx={{
         height: (theme) => theme.trello.columnFooterHeight,
